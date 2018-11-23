@@ -36,13 +36,6 @@ VertexList* ownVertexToPlayer(VertexList *List, int vertex_index) {
         newNode->next = List;
     }
 
-    printf("Current list for the player: ");
-    while(newNode) {
-    	printf("%d ", newNode->LT_vertex);
-    	newNode = newNode->next;
-    }
-    printf("\n");
-
     return newNode;
 }
 
@@ -251,6 +244,13 @@ Player* BoxOwnership(Player *P, Graph *graph, int src, int dest, int player_chan
 	        }
     	}
     }
+
+    printf("Current list for the player: ");
+    while(P[player_chance].owned) {
+        printf("%d ", P[player_chance].owned->LT_vertex);
+        P[player_chance].owned = P[player_chance].owned->next;
+    }
+    printf("\n");
 
     return P;
 }

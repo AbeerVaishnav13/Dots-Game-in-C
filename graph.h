@@ -222,19 +222,19 @@ void printGraph(Graph *graph, Player *P, int num_of_players) {
 
             bool index_owned = false;
             for(k = 0; k < num_of_players; k++) {
-                VertexList *OwnedList = P[i].owned;
-                printf("entered the for loop\n");
+                VertexList *OwnedList = P[k].owned;
+                // printf("entered the for loop\n");
 
-                while(OwnedList) {
+                while(OwnedList != NULL) {
                     printf("entered the while loop\n");
                     if(OwnedList->LT_vertex == index) {
-                        printf("entered if condition\n");
+                        // printf("entered if condition\n");
                         printf(" %d ", i+1);
                         index_owned = true;
                         break;
                     }
                     else {
-                        printf("entered else condition\n");
+                        // printf("entered else condition\n");
                         OwnedList = OwnedList->next;
                     }
                 }
