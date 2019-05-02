@@ -220,28 +220,30 @@ void printGraph(Graph *graph, Player *P, int num_of_players) {
             else if (!connected)
                 printf(" ");
 
-            bool index_owned = false;
-            for(k = 0; k < num_of_players; k++) {
-                VertexList *OwnedList = P[k].owned;
-                // printf("entered the for loop\n");
+            // bool index_owned = false;
+            // for(k = 0; k < num_of_players; k++) {
+            //     VertexList *OwnedList = P[k].owned;
+            //     // printf("entered the for loop\n");
 
-                while(OwnedList != NULL) {
-                    printf("entered the while loop\n");
-                    if(OwnedList->LT_vertex == index) {
-                        // printf("entered if condition\n");
-                        printf(" %d ", i+1);
-                        index_owned = true;
-                        break;
-                    }
-                    else {
-                        // printf("entered else condition\n");
-                        OwnedList = OwnedList->next;
-                    }
-                }
-            }
-            if(index_owned == false)
-                printf("   ");
-            connected = false;
+            //     while(OwnedList) {
+            //         // printf("entered the while loop\n");
+            //         if(OwnedList->LT_vertex == index) {
+            //             // printf("entered if condition\n");
+            //             // printf(" %d ", k+1);
+            //             index_owned = true;
+            //             break;
+            //         }
+            //         else {
+            //             // printf("entered else condition\n");
+            //             OwnedList = OwnedList->next;
+            //         }
+            //     }
+            // }
+            // if(index_owned == false) {
+            //     printf("   ");
+            //     connected = false;
+            // }
+            printf("   ");
         }
         printf("\n");
     }

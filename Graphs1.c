@@ -21,6 +21,10 @@ int main() {
     // boolean to determine if a new edge was added
     bool edgeAdded;
 
+    // Owned box to each player
+    int *owned_box;
+    owned_box = (int*) malloc(2 * sizeof(int));
+
     printf("Enter size of the grid (in LxB format): ");
     scanf("%dx%d", &L, &B);
 
@@ -42,11 +46,17 @@ int main() {
     loop:
     printf("\n1: Add Edge \n2: Print Graph \n3: EXIT \nEnter your choice (Player %d): ", (player_chance + 1));
     scanf("%d", &choice);
+
     switch (choice) {
         case 1: printf("Enter src: "); scanf("%d", &src);
                 printf("Enter dest: "); scanf("%d", &dest);
                 edgeAdded = addEdge(graph, src, dest);
-                P = BoxOwnership(P, graph, src, dest, player_chance);
+                owned_box = BoxOwnership(graph, src, dest, player_chance, owned_box);
+
+                for(int i = 0; i < 2; i++) {
+                    (P+player_chance)->owned = ownVertexToPlayer(P[player_chance].owned, owned_box[i]);
+                }
+
                 break;
 
         case 2: printGraph(graph, P, num_of_players);
